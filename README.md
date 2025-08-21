@@ -19,12 +19,14 @@ This portfolio is a space where I highlight some of the projects I’ve worked o
 - **Backend:** Node.js, ExpressJS, Supabase, PostgreSQL, Redis  
 - **DevOps & Infrastructure:** Docker, Nginx, AWS (EC2, S3), GitHub Actions, CI/CD  
 - **Other Tools & Skills:** TypeScript, Playwright & Selenium (testing), Cloudinary (media handling)  
+- **Operating System** Linux(Ubuntu)
 
 
 ## 📬 Contact
 If you’d like to connect or collaborate, feel free to reach out:  
 - GitHub: [@yevsel](https://github.com/yevsel)  
-- Email: your-email@example.com  
+- Email: yevselasi@gmail.com  
+- X (Twitter): [@yevsel](https://x.com/yevsel)  
 
 ---
 ⭐️ Thanks for visiting my portfolio repo!
