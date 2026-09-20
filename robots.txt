@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://yevsel.com/sitemap.xml
