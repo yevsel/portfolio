@@ -102,6 +102,7 @@
         --line: #111111;
         --hair: #dcdcd8;
         --tint: #f4f4f2;
+        --accent: #adf802;
       }
       * {
         box-sizing: border-box;
@@ -172,7 +173,7 @@
         border-bottom: 2px solid transparent;
       }
       nav.tabs a:hover {
-        border-bottom: 2px solid var(--ink);
+        border-bottom: 2px solid var(--accent);
       }
 
       /* ===== Hero ===== */
@@ -241,6 +242,7 @@
         gap: 22px;
       }
       .link-cta {
+        display: inline-block;
         font-size: 0.82rem;
         font-weight: 600;
         text-transform: uppercase;
@@ -248,11 +250,13 @@
         text-decoration: none;
         color: var(--ink);
         border-bottom: 1px solid var(--ink);
-        padding-bottom: 2px;
+        padding: 2px 4px 2px 0;
       }
       .link-cta:hover {
-        color: var(--muted);
-        border-color: var(--muted);
+        color: var(--ink);
+        border-color: var(--accent);
+        background: var(--accent);
+        padding: 2px 6px;
       }
 
       @media (max-width: 600px) {
@@ -280,9 +284,11 @@
         border-bottom: 1px solid var(--line);
       }
       .section-head .num {
-        font-size: 0.8rem;
-        color: var(--faint);
-        font-weight: 600;
+        font-size: 0.75rem;
+        color: var(--ink);
+        font-weight: 700;
+        background: var(--accent);
+        padding: 3px 7px;
       }
       .section-head h2 {
         font-size: clamp(1.2rem, 2.2vw, 1.6rem);
@@ -314,8 +320,13 @@
       }
       .comp-item .idx {
         font-size: 0.8rem;
-        color: var(--faint);
-        font-weight: 600;
+        color: var(--muted);
+        font-weight: 700;
+      }
+      .comp-item:hover .idx {
+        color: var(--ink);
+        background: var(--accent);
+        padding: 1px 5px;
       }
       .comp-item strong {
         display: block;
@@ -359,7 +370,8 @@
         padding: 4px 10px;
       }
       .stack-row .tags span:hover {
-        border-color: var(--ink);
+        border-color: var(--accent);
+        background: var(--accent);
         color: var(--ink);
       }
 
@@ -396,8 +408,10 @@
       }
       .job-head span {
         font-size: 0.78rem;
-        color: var(--faint);
-        font-weight: 600;
+        color: var(--ink);
+        font-weight: 700;
+        background: var(--accent);
+        padding: 2px 6px;
       }
       .job-company {
         margin-top: 4px;
@@ -459,9 +473,6 @@
       }
       #contact .section-head {
         border-bottom: 1px solid #444;
-      }
-      #contact .section-head .num {
-        color: #8a8a86;
       }
       .contact-grid {
         display: grid;
@@ -578,15 +589,7 @@
             <h2>Summary</h2>
           </div>
           <p>
-            Software &amp; AI Engineer with 5+ years of experience building
-            scalable web, mobile, and agentic AI systems across e-commerce,
-            education, government, and enterprise domains. Experienced in
-            architecting LangGraph/LangChain agent orchestration — routing,
-            memory, RAG, Deep Agents, and MCP tool integration — alongside
-            AI-agent governance, policy engines, and production QA automation.
-            Skilled in JavaScript, TypeScript, Python, React, FastAPI, Node.js,
-            and PostgreSQL, with a track record of designing and delivering
-            production-ready systems end-to-end.
+            I'm a Software &amp; AI Engineer with over 5 years of hands-on experience crafting reliable full-stack applications and agentic AI systems. My work spans enterprise security, government platforms, e-commerce, and education—where I focus on bridging intelligent AI orchestration (LangGraph, MCP, RAG, and policy governance) with solid, scalable software engineering in Python, TypeScript, React, and Node.js. I thrive on taking complex, ambiguous technical challenges and turning them into clean, high-performing products that make a real impact.
           </p>
         </div>
       </section>
