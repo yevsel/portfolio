@@ -681,16 +681,18 @@
               <div class="label">Frameworks</div>
               <div class="tags">
                 <span>React / React Native</span><span>Next.js</span
-                ><span>Node.js</span><span>FastAPI / FastMCP</span>
+                ><span>Node.js</span><span>FastAPI</span
+                ><span>Express.js</span>
               </div>
             </div>
             <div class="stack-row">
               <div class="label">AI &amp; Agents</div>
               <div class="tags">
                 <span>LangGraph / LangChain</span><span>MCP</span
-                ><span>RAG</span><span>Guardrails (PII)</span
-                ><span>Cedar Policy Engine</span><span>Claude</span
-                ><span>LangSmith / Langfuse</span><span>Bhashini STT/TTS</span
+                ><span>FastMCP</span><span>RAG</span
+                ><span>Guardrails (PII)</span><span>Cedar Policy Engine</span
+                ><span>Claude Code</span><span>LangSmith / Langfuse</span
+                ><span>Bhashini STT/TTS</span
                 ><span>On-device LLM (Qwen 2.5)</span><span>ML Kit</span>
               </div>
             </div>
@@ -705,23 +707,14 @@
               <div class="label">Cloud &amp; Infra</div>
               <div class="tags">
                 <span>AWS (EC2, ECS)</span><span>Docker</span
-                ><span>Kubernetes</span><span>Nginx</span><span>Linux</span
-                ><span>cPanel</span>
+                ><span>Nginx</span><span>Linux</span>
               </div>
             </div>
             <div class="stack-row">
               <div class="label">DevOps</div>
               <div class="tags">
                 <span>Git</span><span>GitHub Actions</span
-                ><span>GitLab CI/CD</span><span>rsync</span
-                ><span>Cron Jobs</span>
-              </div>
-            </div>
-            <div class="stack-row">
-              <div class="label">QA / Testing</div>
-              <div class="tags">
-                <span>Playwright (E2E, API, integration)</span
-                ><span>Selenium</span><span>Allure Reporting</span>
+                ><span>GitLab CI/CD</span>
               </div>
             </div>
           </div>
@@ -743,28 +736,62 @@
             <div class="job-company">
               BeeHyv Software Solutions — A software consultancy building AI
               systems for enterprise clients; staffed across multiple concurrent
-              client engagements below..
+              client engagements below.
             </div>
 
             <div class="project">
               <h4>TenetXAI — AI Security &amp; Governance</h4>
               <ul>
                 <li>
-                  Identified a critical blind spot in the policy engine: NoSQL
-                  and cloud-native databases (ClickHouse, Aerospike, Neo4j) had
-                  no detection coverage for destructive operations, unlike
-                  traditional relational databases.
+                  Integrated Google Antigravity as a new supported coding agent
+                  end-to-end, wiring its guard-script generation, CLI installer,
+                  and hook handler across the Python backend and Go CLI.
                 </li>
                 <li>
-                  Built new detection logic and Cedar policies covering
-                  destructive operations across ClickHouse, Aerospike, and
-                  Neo4j, closing the parity gap with existing
-                  relational-database protections.
+                  Built new detection logic and policies covering destructive
+                  operations across NoSQL and cloud-native databases, closing
+                  the parity gap with existing relational-database protections
+                  — raising detection coverage from 0% to ~90%.
                 </li>
                 <li>
-                  Extended detection to OS-level database service termination,
-                  closing 10 of 12 identified gaps with end-to-end verification
-                  and logging.
+                  Extended the detection layer so an existing
+                  critical-service-kill policy could recognize and block
+                  OS-level database service termination it was previously
+                  blind to.
+                </li>
+              </ul>
+            </div>
+
+            <div class="project">
+              <h4>
+                Bihar Krishi — Full-Stack AI Chat System (Frontend &amp;
+                LangGraph Agent)
+              </h4>
+              <ul>
+                <li>
+                  Redesigned LangGraph routing with structured normalization
+                  and fallback parsing, and disabled audio recording during LLM
+                  processing — together cutting audio/routing errors by ~90%.
+                </li>
+                <li>
+                  Migrated Bhashini STT/TTS processing to the frontend, reducing
+                  audio latency by ~50% and expanding multilingual support to
+                  18 languages for 20M+ farmers.
+                </li>
+                <li>
+                  Built a UI Actions system rendering backend-driven
+                  buttons/navigation from metadata, eliminating hardcoded
+                  frontend logic and enabling scalable interaction flows.
+                </li>
+                <li>
+                  Secured all query paths via token/profile-state validation
+                  and regex-based OTP safeguards, preventing false-positive
+                  session invalidations.
+                </li>
+                <li>
+                  Packaged the chat experience as a framework-agnostic,
+                  embeddable chatbot widget, integrated across multiple
+                  third-party government platforms (Pucar).
                 </li>
               </ul>
             </div>
@@ -776,42 +803,44 @@
               </h4>
               <ul>
                 <li>
-                  Built a Claude Skills system that reads each grantee's project
-                  phase and auto-sends a tailored monthly update request with
-                  the correct template attached.
+                  Built a Claude Skills system that reads each grantee's real
+                  project-phase from the PO's tracker and prepares a tailored
+                  monthly update request with the correct sections and
+                  attachments, making outreach fully automatic.
                 </li>
                 <li>
-                  Built a scheduled Claude routine to detect exactly what
-                  changed in a grantee's reply, routing edits to the PO for
-                  review before tracker updates.
+                  Built a scheduled routine that checks grantee replies twice a
+                  day, flags what changed, and routes it to the PO for approval
+                  before the tracker updates.
                 </li>
                 <li>
-                  Integrated Power Automate to handle the email round-trip
-                  end-to-end and sync everything to OneDrive automatically.
+                  Used Microsoft Power Automate to send update emails with
+                  attachments and save grantee reply attachments, syncing
+                  everything with the tracker via Claude and OneDrive.
                 </li>
               </ul>
             </div>
 
             <div class="project">
-              <h4>QA Automation System</h4>
+              <h4>QA Automation System for Agent Framework</h4>
               <ul>
                 <li>
-                  Built a scraper generating a structured UI action contract,
-                  feeding an AI-driven pipeline into test plans, YAML test
-                  cases, and Playwright specs.
+                  Built a Playwright-based scraper that crawls a web app into a
+                  structured UI contract (elements, selectors, forms), feeding
+                  an AI pipeline that generates test plans, YAML test cases,
+                  and Playwright specs from it.
                 </li>
                 <li>
-                  Triggered the full pipeline automatically on every deploy and
-                  wired it into CI/CD as a gate via Allure reporting.
+                  Built a pre-deploy smoke gate that runs every registered
+                  workflow against the live orchestrator API and reports
+                  pass/fail/warn per workflow — including catching a node that
+                  silently never executed.
                 </li>
                 <li>
-                  Built an automated failure-triage system classifying test
-                  failures and routing them to the right fix.
-                </li>
-                <li>
-                  Built a mock-LLM service — a Dockerized fake OpenAI-compatible
-                  API replaying deterministic scripted flows — solving flaky
-                  agent-workflow testing.
+                  Built a Dockerized mock-LLM service — a fake OpenAI-compatible
+                  API replaying deterministic scripted responses — eliminating
+                  flaky, non-reproducible agent-workflow tests without needing
+                  real LLM calls.
                 </li>
               </ul>
             </div>
@@ -822,22 +851,27 @@
               </h4>
               <ul>
                 <li>
-                  Implemented cross-node shared context
-                  (context_write/context_read) enabling reliable data handoff
-                  through multi-step workflows.
+                  Built a shared context system so any step in a workflow can
+                  write data that a later step can read, even far down the
+                  chain and unaffected by summarization.
                 </li>
                 <li>
-                  Architected a Cedar policy-based governance layer with
-                  tenant-scoped access control and a policy builder UI.
+                  Implemented a Cedar policy-based governance layer for the
+                  agent platform, tenant-scoped discover/invoke deny rules
+                  across tools, models, workflows, users, and roles, with a
+                  policy builder UI so teams could target rules without writing
+                  raw Cedar.
                 </li>
                 <li>
-                  Built agent memory management via sliding-window summarization
-                  with tool-pair repair.
+                  Built sliding-window memory summarization for agents, fixed
+                  tool-call/response pairing during trims, and tuned thresholds
+                  after a production context-overflow issue.
                 </li>
                 <li>
                   Diagnosed and fixed a critical shared-context bug where
                   LangChain MCP tool outputs weren't reaching downstream agent
-                  nodes.
+                  nodes, tracing root cause to how tool message content is
+                  structured.
                 </li>
               </ul>
             </div>
@@ -849,14 +883,17 @@
               </h4>
               <ul>
                 <li>
-                  Diagnosed and resolved critical disconnects between LangGraph
-                  agents and the UI Action MCP server, restoring production
-                  reliability.
+                  Resolved critical disconnects between LangGraph agents and
+                  the UI Action MCP server, restoring production reliability.
                 </li>
                 <li>
                   Migrated a React-based chat application into a
                   framework-agnostic Vanilla JS SDK for seamless third-party
                   embedding.
+                </li>
+                <li>
+                  Rebuilt UI components using class-based Vanilla JS
+                  architecture with full state and lifecycle management.
                 </li>
                 <li>
                   Developed a dynamic UI Actions SDK parsing backend-driven
@@ -886,29 +923,6 @@
                 </li>
               </ul>
             </div>
-
-            <div class="project">
-              <h4>
-                Bihar Krishi — Full-Stack AI Chat System (Frontend &amp;
-                LangGraph Agent)
-              </h4>
-              <ul>
-                <li>
-                  Migrated Bhashini STT/TTS processing to the frontend, reducing
-                  audio latency by ~50% and expanding support to 18 languages
-                  for 20M+ farmers.
-                </li>
-                <li>
-                  Redesigned LangGraph routing with structured normalization and
-                  fallback parsing, cutting audio/routing errors by ~90%.
-                </li>
-                <li>
-                  Packaged the chat experience as a framework-agnostic
-                  embeddable widget integrated across multiple third-party
-                  government platforms (Pucar, Dristi).
-                </li>
-              </ul>
-            </div>
           </div>
 
           <div class="job">
@@ -923,10 +937,9 @@
             <div class="project">
               <ul>
                 <li>
-                  Co-founded and led development of a React Native (Expo Router)
-                  shopping app with real-time buyer-vendor chat (Supabase),
-                  media-rich messaging (Cloudinary), and infinite video
-                  scrolling.
+                  Co-founded and built a React Native (Expo Router) shopping
+                  app with real-time buyer-vendor chat (Supabase), media-rich
+                  messaging (Cloudinary), and infinite video scrolling.
                 </li>
                 <li>
                   Designed and maintained a scalable 100+ endpoint RESTful API
@@ -957,23 +970,32 @@
             <div class="project">
               <ul>
                 <li>
-                  Built the entire platform end-to-end — student, coach, and
-                  employer portals — while serving as Software Engineering
-                  Instructor for 2 cohorts.
+                  Built the full platform end-to-end — student, coach, and
+                  employer portals — from architecture through deployment,
+                  while teaching full-stack development to 2 cohorts as
+                  Software Engineering Instructor.
                 </li>
                 <li>
-                  Developed a dynamic student dashboard with progress
-                  visualization (Highcharts), plus real-time chat/video
-                  (VideoSDK.live).
+                  Developed a student dashboard with lesson/project scores,
+                  career advisories, and progress charts (Highcharts), plus
+                  real-time chat/video (VideoSDK.live) for coach sessions and
+                  interviews.
                 </li>
                 <li>
-                  Created Talent Passport (Gemini AI-generated résumés) and
-                  CareerPilot, visualizing student strengths as a React Flow
-                  diagram.
+                  Created Talent Passport System and CareerPilot, analyzing CVs
+                  and Talent Passport data into a React Flow diagram of student
+                  strengths.
                 </li>
                 <li>
-                  Built a Job Tracker System using Python/Selenium to scrape and
-                  match job listings to students.
+                  Implemented a Job Tracker System using Python/Selenium to
+                  scrape job listings and match them to students based on
+                  their strengths.
+                </li>
+                <li>
+                  Delivered the coach and employer platforms — expertise-based
+                  coach registration with scheduling, and employer onboarding
+                  with project posting, candidate shortlisting, and interview
+                  tools.
                 </li>
               </ul>
             </div>
@@ -990,20 +1012,20 @@
             <div class="project">
               <ul>
                 <li>
-                  Built a rental platform (Next.js, React, PostgreSQL) for
-                  farmers to discover and rent equipment by proximity.
+                  Built a Next.js/React rental platform with PostgreSQL for
+                  farmers to find and rent equipment nearby.
                 </li>
                 <li>
-                  Built a USSD server on AWS EC2 (*920150#) for order
-                  placement/callbacks, extending access to non-smartphone users.
+                  Built a USSD server on AWS EC2 so non-smartphone users could
+                  place orders.
                 </li>
                 <li>
-                  Integrated real-time chat (Supabase) connecting farmers
-                  directly with equipment owners.
+                  Implemented real-time chat between farmers and equipment
+                  owners.
                 </li>
                 <li>
-                  Owned backend, database, and infrastructure end-to-end —
-                  deployed via cPanel with rsync.
+                  Owned the backend, database, and deployment (cPanel + rsync)
+                  end-to-end.
                 </li>
               </ul>
             </div>
@@ -1020,12 +1042,16 @@
             <div class="project">
               <ul>
                 <li>
-                  Built and maintained RESTful APIs using Node.js and Express.js
-                  for course registration, authentication, and user management.
+                  Built REST APIs (Node.js/Express) for course registration,
+                  auth, and user management with JWT sessions.
                 </li>
                 <li>
-                  Designed and optimized PostgreSQL schemas for managing users,
-                  course data, and transactions.
+                  Designed and optimized PostgreSQL schemas for users, courses,
+                  and transactions.
+                </li>
+                <li>
+                  Worked with frontend devs on API integration and consistent
+                  error handling.
                 </li>
               </ul>
             </div>
