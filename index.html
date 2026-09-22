@@ -2,6 +2,16 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <script>
+      (function () {
+        try {
+          var t = localStorage.getItem("theme");
+          if (t === "dark" || t === "light") {
+            document.documentElement.setAttribute("data-theme", t);
+          }
+        } catch (e) {}
+      })();
+    </script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Yevoo Justice Selasi — Software &amp; AI Engineer</title>
     <meta
@@ -103,6 +113,50 @@
         --hair: #dcdcd8;
         --tint: #f4f4f2;
         --accent: #adf802;
+        --on-accent: #111111;
+        --nav-bg: rgba(255, 255, 255, 0.94);
+        --invert-bg: #111111;
+        --invert-fg: #f2f2ee;
+        --invert-line: #333333;
+        --invert-label: #8a8a86;
+        --invert-hover: #1c1c1c;
+        --invert-dim: #6f6f6b;
+        --shadow-transition:
+          color 0.25s ease,
+          background-color 0.25s ease,
+          border-color 0.25s ease;
+      }
+      :root[data-theme="dark"] {
+        --bg: #0d0d0d;
+        --paper: #1a1a1a;
+        --ink: #f2f2ee;
+        --muted: #a8a8a3;
+        --faint: #7a7a76;
+        --line: #f2f2ee;
+        --hair: #303030;
+        --tint: #1c1c1c;
+        --nav-bg: rgba(13, 13, 13, 0.92);
+        --invert-bg: #000000;
+        --invert-hover: #141414;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root:not([data-theme="light"]) {
+          --bg: #0d0d0d;
+          --paper: #1a1a1a;
+          --ink: #f2f2ee;
+          --muted: #a8a8a3;
+          --faint: #7a7a76;
+          --line: #f2f2ee;
+          --hair: #303030;
+          --tint: #1c1c1c;
+          --nav-bg: rgba(13, 13, 13, 0.92);
+          --invert-bg: #000000;
+          --invert-hover: #141414;
+        }
+      }
+      html,
+      body {
+        transition: var(--shadow-transition);
       }
       * {
         box-sizing: border-box;
@@ -152,14 +206,28 @@
         position: sticky;
         top: 0;
         z-index: 10;
-        background: rgba(255, 255, 255, 0.94);
+        background: var(--nav-bg);
         backdrop-filter: saturate(120%) blur(4px);
         border-bottom: 1px solid var(--line);
+      }
+      .nav-row {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        flex-wrap: nowrap;
       }
       nav.tabs ul {
         list-style: none;
         display: flex;
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        flex: 1 1 auto;
+        min-width: 0;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      nav.tabs ul::-webkit-scrollbar {
+        display: none;
       }
       nav.tabs a {
         display: block;
@@ -171,9 +239,33 @@
         font-size: 0.74rem;
         letter-spacing: 0.1em;
         border-bottom: 2px solid transparent;
+        white-space: nowrap;
       }
       nav.tabs a:hover {
         border-bottom: 2px solid var(--accent);
+      }
+      .theme-toggle {
+        font-family: inherit;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        background: none;
+        border: 1px solid var(--ink);
+        color: var(--ink);
+        padding: 7px 14px;
+        margin-left: 12px;
+        cursor: pointer;
+        flex-shrink: 0;
+        transition:
+          color 0.18s ease,
+          background-color 0.18s ease,
+          border-color 0.18s ease;
+      }
+      .theme-toggle:hover {
+        background: var(--accent);
+        border-color: var(--accent);
+        color: var(--on-accent);
       }
 
       /* ===== Hero ===== */
@@ -253,7 +345,7 @@
         padding: 2px 4px 2px 0;
       }
       .link-cta:hover {
-        color: var(--ink);
+        color: var(--on-accent);
         border-color: var(--accent);
         background: var(--accent);
         padding: 2px 6px;
@@ -285,7 +377,7 @@
       }
       .section-head .num {
         font-size: 0.75rem;
-        color: var(--ink);
+        color: var(--on-accent);
         font-weight: 700;
         background: var(--accent);
         padding: 3px 7px;
@@ -301,7 +393,7 @@
       #summary p {
         font-size: 1.08rem;
         max-width: 780px;
-        color: #222;
+        color: var(--ink);
       }
 
       /* ===== Competencies ===== */
@@ -324,7 +416,7 @@
         font-weight: 700;
       }
       .comp-item:hover .idx {
-        color: var(--ink);
+        color: var(--on-accent);
         background: var(--accent);
         padding: 1px 5px;
       }
@@ -371,7 +463,7 @@
       .stack-row .tags span:hover {
         border-color: var(--accent);
         background: var(--accent);
-        color: var(--ink);
+        color: var(--on-accent);
       }
 
       @media (max-width: 640px) {
@@ -407,7 +499,7 @@
       }
       .job-head span {
         font-size: 0.78rem;
-        color: var(--ink);
+        color: var(--on-accent);
         font-weight: 700;
         background: var(--accent);
         padding: 2px 6px;
@@ -437,7 +529,7 @@
         margin-bottom: 8px;
         padding-left: 16px;
         position: relative;
-        color: #333;
+        color: var(--ink);
       }
       .project li::before {
         content: "–";
@@ -465,60 +557,124 @@
 
       /* ===== Contact ===== */
       #contact {
-        background: var(--ink);
-        color: #f2f2ee;
+        background: var(--invert-bg);
+        color: var(--invert-fg);
         border-bottom: none;
       }
       #contact .section-head {
-        border-bottom: 1px solid #444;
+        border-bottom: 1px solid var(--invert-line);
       }
       .contact-grid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-        border-top: 1px solid #333;
-        border-left: 1px solid #333;
+        border-top: 1px solid var(--invert-line);
+        border-left: 1px solid var(--invert-line);
       }
       .contact-card {
         padding: 22px;
-        border-right: 1px solid #333;
-        border-bottom: 1px solid #333;
+        border-right: 1px solid var(--invert-line);
+        border-bottom: 1px solid var(--invert-line);
       }
       .contact-card:hover {
-        background: #1c1c1c;
+        background: var(--invert-hover);
       }
       .contact-card strong {
         display: block;
         text-transform: uppercase;
         font-size: 0.72rem;
         letter-spacing: 0.08em;
-        color: #8a8a86;
+        color: var(--invert-label);
         margin-bottom: 8px;
       }
       .contact-card a,
       .contact-card div {
-        color: #f2f2ee;
+        color: var(--invert-fg);
         text-decoration: underline;
         text-underline-offset: 3px;
         font-size: 0.9rem;
         word-break: break-word;
       }
       .contact-card a:hover {
-        color: #b8b8b3;
+        color: var(--accent);
       }
 
       footer {
-        background: var(--ink);
-        color: #6f6f6b;
+        background: var(--invert-bg);
+        color: var(--invert-dim);
         text-align: center;
         padding: 20px;
         font-size: 0.76rem;
-        border-top: 1px solid #333;
+        border-top: 1px solid var(--invert-line);
+      }
+
+      /* ===== Scroll-spy ===== */
+      nav.tabs a.active {
+        border-bottom: 2px solid var(--accent);
+        color: var(--ink);
+      }
+
+      /* ===== Reveal animations ===== */
+      @media (prefers-reduced-motion: no-preference) {
+        [data-reveal] {
+          opacity: 0;
+          transform: translateY(28px);
+          transition:
+            opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
+            transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+          transition-delay: var(--d, 0ms);
+        }
+        [data-reveal="left"] {
+          transform: translateX(-36px);
+        }
+        [data-reveal="right"] {
+          transform: translateX(36px);
+        }
+        [data-reveal="scale"] {
+          transform: scale(0.65);
+        }
+        [data-reveal="head"] {
+          opacity: 1;
+          transform: none;
+          transition: none;
+        }
+        [data-reveal].is-visible {
+          opacity: 1;
+          transform: none;
+        }
+
+        .section-head h2 {
+          position: relative;
+        }
+        .section-head h2::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: var(--accent);
+          transform-origin: right;
+          transform: scaleX(1);
+          transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1) 0.05s;
+        }
+        .section-head[data-reveal].is-visible h2::after {
+          transform: scaleX(0);
+        }
+        #contact .section-head h2::after {
+          background: var(--accent);
+        }
+      }
+      @media (prefers-reduced-motion: reduce) {
+        [data-reveal] {
+          opacity: 1 !important;
+          transform: none !important;
+        }
       }
 
       @media (max-width: 600px) {
         nav.tabs a {
-          flex: 1 1 50%;
-          text-align: center;
+          padding: 14px 14px;
+        }
+        .theme-toggle {
+          padding: 6px 10px;
+          margin-left: 8px;
         }
       }
     </style>
@@ -534,17 +690,18 @@
             height="56"
             alt="Yevoo Justice Selasi"
             loading="eager"
+            data-reveal="scale"
           />
-          <div class="hero-id">
+          <div class="hero-id" data-reveal="up">
             <div class="eyebrow">Software &amp; AI Engineer</div>
             <h1>Yevoo Justice Selasi</h1>
           </div>
         </div>
-        <div class="role">
+        <div class="role" data-reveal="up" style="--d: 120ms">
           5+ years building agentic AI &amp; full-stack systems for e-commerce,
           education, government, and enterprise.
         </div>
-        <div class="hero-bottom">
+        <div class="hero-bottom" data-reveal="up" style="--d: 220ms">
           <div class="hero-meta mono">
             <span>Accra, Ghana</span>
             <span>·</span>
@@ -567,7 +724,7 @@
     </header>
 
     <nav class="tabs">
-      <div class="wrap">
+      <div class="wrap nav-row">
         <ul>
           <li><a href="#summary">Summary</a></li>
           <li><a href="#competencies">Competencies</a></li>
@@ -576,17 +733,25 @@
           <li><a href="#education">Education</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
+        <button
+          id="theme-toggle"
+          class="theme-toggle mono"
+          type="button"
+          aria-label="Toggle dark mode"
+        >
+          Dark
+        </button>
       </div>
     </nav>
 
     <main>
       <section id="summary">
         <div class="wrap">
-          <div class="section-head">
+          <div class="section-head" data-reveal="head">
             <span class="num mono">01</span>
             <h2>Summary</h2>
           </div>
-          <p>
+          <p data-reveal="up">
             I'm a Software &amp; AI Engineer with over 5 years of hands-on
             experience crafting reliable full-stack applications and agentic AI
             systems. My work spans enterprise security, government platforms,
@@ -602,12 +767,12 @@
 
       <section id="competencies">
         <div class="wrap">
-          <div class="section-head">
+          <div class="section-head" data-reveal="head">
             <span class="num mono">02</span>
             <h2>Core Competencies</h2>
           </div>
           <div class="comp-list">
-            <div class="comp-item">
+            <div class="comp-item" data-reveal="left" style="--d: 0ms">
               <span class="idx mono">01</span>
               <div>
                 <strong>Agent Orchestration</strong>
@@ -617,7 +782,7 @@
                 >
               </div>
             </div>
-            <div class="comp-item">
+            <div class="comp-item" data-reveal="left" style="--d: 70ms">
               <span class="idx mono">02</span>
               <div>
                 <strong>Governance &amp; QA</strong>
@@ -628,7 +793,7 @@
                 >
               </div>
             </div>
-            <div class="comp-item">
+            <div class="comp-item" data-reveal="left" style="--d: 140ms">
               <span class="idx mono">03</span>
               <div>
                 <strong>Multilingual &amp; On-Device AI</strong>
@@ -639,7 +804,7 @@
                 >
               </div>
             </div>
-            <div class="comp-item">
+            <div class="comp-item" data-reveal="left" style="--d: 210ms">
               <span class="idx mono">04</span>
               <div>
                 <strong>Claude &amp; Automation</strong>
@@ -649,7 +814,7 @@
                 >
               </div>
             </div>
-            <div class="comp-item">
+            <div class="comp-item" data-reveal="left" style="--d: 280ms">
               <span class="idx mono">05</span>
               <div>
                 <strong>Full-Stack Development</strong>
@@ -665,19 +830,19 @@
 
       <section id="stack">
         <div class="wrap">
-          <div class="section-head">
+          <div class="section-head" data-reveal="head">
             <span class="num mono">03</span>
             <h2>Technical Stack</h2>
           </div>
           <div class="stack-table">
-            <div class="stack-row">
+            <div class="stack-row" data-reveal="up" style="--d: 0ms">
               <div class="label">Languages</div>
               <div class="tags">
                 <span>JavaScript</span><span>TypeScript</span><span>Python</span
                 ><span>SQL</span>
               </div>
             </div>
-            <div class="stack-row">
+            <div class="stack-row" data-reveal="up" style="--d: 60ms">
               <div class="label">Frameworks</div>
               <div class="tags">
                 <span>React / React Native</span><span>Next.js</span
@@ -685,7 +850,7 @@
                 ><span>Express.js</span>
               </div>
             </div>
-            <div class="stack-row">
+            <div class="stack-row" data-reveal="up" style="--d: 120ms">
               <div class="label">AI &amp; Agents</div>
               <div class="tags">
                 <span>LangGraph / LangChain</span><span>MCP</span
@@ -696,21 +861,21 @@
                 ><span>On-device LLM (Qwen 2.5)</span><span>ML Kit</span>
               </div>
             </div>
-            <div class="stack-row">
+            <div class="stack-row" data-reveal="up" style="--d: 180ms">
               <div class="label">Databases</div>
               <div class="tags">
                 <span>PostgreSQL</span><span>MongoDB</span><span>Redis</span
                 ><span>Supabase</span><span>MinIO</span>
               </div>
             </div>
-            <div class="stack-row">
+            <div class="stack-row" data-reveal="up" style="--d: 240ms">
               <div class="label">Cloud &amp; Infra</div>
               <div class="tags">
                 <span>AWS (EC2, ECS)</span><span>Docker</span
                 ><span>Nginx</span><span>Linux</span>
               </div>
             </div>
-            <div class="stack-row">
+            <div class="stack-row" data-reveal="up" style="--d: 300ms">
               <div class="label">DevOps</div>
               <div class="tags">
                 <span>Git</span><span>GitHub Actions</span
@@ -723,12 +888,12 @@
 
       <section id="experience">
         <div class="wrap">
-          <div class="section-head">
+          <div class="section-head" data-reveal="head">
             <span class="num mono">04</span>
             <h2>Professional Experience</h2>
           </div>
 
-          <div class="job">
+          <div class="job" data-reveal="left">
             <div class="job-head">
               <h3>Software &amp; AI Engineer</h3>
               <span class="mono">Oct 2025 – Sep 2026</span>
@@ -925,7 +1090,7 @@
             </div>
           </div>
 
-          <div class="job">
+          <div class="job" data-reveal="right">
             <div class="job-head">
               <h3>CoFounder & Lead Software Developer</h3>
               <span class="mono">Apr 2023 – Dec 2025</span>
@@ -958,7 +1123,7 @@
             </div>
           </div>
 
-          <div class="job">
+          <div class="job" data-reveal="left">
             <div class="job-head">
               <h3>Lead FullStack Developer &amp; Instructor</h3>
               <span class="mono">Feb 2022 – Nov 2025</span>
@@ -1001,7 +1166,7 @@
             </div>
           </div>
 
-          <div class="job">
+          <div class="job" data-reveal="right">
             <div class="job-head">
               <h3>FullStack Developer</h3>
               <span class="mono">Oct 2020 – Jan 2022</span>
@@ -1031,7 +1196,7 @@
             </div>
           </div>
 
-          <div class="job">
+          <div class="job" data-reveal="left">
             <div class="job-head">
               <h3>Junior Backend Developer</h3>
               <span class="mono">Jan 2021 – Apr 2022</span>
@@ -1061,11 +1226,11 @@
 
       <section id="education">
         <div class="wrap">
-          <div class="section-head">
+          <div class="section-head" data-reveal="head">
             <span class="num mono">05</span>
             <h2>Education</h2>
           </div>
-          <div class="edu-block">
+          <div class="edu-block" data-reveal="up">
             <strong>B.Sc. Computer Science with Mathematics</strong>
             <span>University of Ghana (Legon)</span>
           </div>
@@ -1074,24 +1239,24 @@
 
       <section id="contact">
         <div class="wrap">
-          <div class="section-head">
+          <div class="section-head" data-reveal="head">
             <span class="num mono">06</span>
             <h2>Contact</h2>
           </div>
           <div class="contact-grid">
-            <div class="contact-card">
+            <div class="contact-card" data-reveal="scale" style="--d: 0ms">
               <strong>Email</strong>
               <a href="mailto:yevselasi@gmail.com">yevselasi@gmail.com</a>
             </div>
-            <div class="contact-card">
+            <div class="contact-card" data-reveal="scale" style="--d: 50ms">
               <strong>Phone</strong>
               <a href="tel:+233249523573">+233 249523573</a>
             </div>
-            <div class="contact-card">
+            <div class="contact-card" data-reveal="scale" style="--d: 100ms">
               <strong>Location</strong>
               <div>Accra, Ghana</div>
             </div>
-            <div class="contact-card">
+            <div class="contact-card" data-reveal="scale" style="--d: 150ms">
               <strong>Résumé</strong>
               <a
                 href="https://drive.google.com/file/d/1QDamTXrng6jmufB3zuJSvJHEOmubTj_K/view"
@@ -1100,13 +1265,13 @@
                 >View on Google Drive</a
               >
             </div>
-            <div class="contact-card">
+            <div class="contact-card" data-reveal="scale" style="--d: 200ms">
               <strong>GitHub</strong>
               <a href="https://github.com/yevsel" target="_blank" rel="noopener"
                 >github.com/yevsel</a
               >
             </div>
-            <div class="contact-card">
+            <div class="contact-card" data-reveal="scale" style="--d: 250ms">
               <strong>LinkedIn</strong>
               <a
                 href="https://linkedin.com/in/yevsel"
@@ -1115,7 +1280,7 @@
                 >linkedin.com/in/yevsel</a
               >
             </div>
-            <div class="contact-card">
+            <div class="contact-card" data-reveal="scale" style="--d: 300ms">
               <strong>X (Twitter)</strong>
               <a href="https://x.com/yevsel" target="_blank" rel="noopener"
                 >x.com/yevsel</a
@@ -1129,5 +1294,96 @@
     <footer>
       Yevoo Justice Selasi — Software &amp; AI Engineer — Accra, Ghana
     </footer>
+
+    <script>
+      (function () {
+        var root = document.documentElement;
+        var themeToggle = document.getElementById("theme-toggle");
+        var themeMeta = document.querySelector('meta[name="theme-color"]');
+
+        function currentTheme() {
+          var attr = root.getAttribute("data-theme");
+          if (attr === "dark" || attr === "light") return attr;
+          return window.matchMedia("(prefers-color-scheme: dark)").matches
+            ? "dark"
+            : "light";
+        }
+        function syncThemeUI() {
+          var isDark = currentTheme() === "dark";
+          if (themeToggle) {
+            themeToggle.textContent = isDark ? "Light" : "Dark";
+            themeToggle.setAttribute("aria-pressed", isDark ? "true" : "false");
+          }
+          if (themeMeta) {
+            themeMeta.setAttribute("content", isDark ? "#0d0d0d" : "#111111");
+          }
+        }
+        syncThemeUI();
+        if (themeToggle) {
+          themeToggle.addEventListener("click", function () {
+            var next = currentTheme() === "dark" ? "light" : "dark";
+            root.setAttribute("data-theme", next);
+            try {
+              localStorage.setItem("theme", next);
+            } catch (e) {}
+            syncThemeUI();
+          });
+        }
+
+        var reduceMotion = window.matchMedia(
+          "(prefers-reduced-motion: reduce)",
+        ).matches;
+        var revealEls = document.querySelectorAll("[data-reveal]");
+
+        if (reduceMotion || !("IntersectionObserver" in window)) {
+          revealEls.forEach(function (el) {
+            el.classList.add("is-visible");
+          });
+        } else {
+          var revealObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                if (entry.isIntersecting) {
+                  entry.target.classList.add("is-visible");
+                  revealObserver.unobserve(entry.target);
+                }
+              });
+            },
+            { threshold: 0.15, rootMargin: "0px 0px -8% 0px" },
+          );
+          revealEls.forEach(function (el) {
+            revealObserver.observe(el);
+          });
+        }
+
+        var navLinks = document.querySelectorAll('nav.tabs a[href^="#"]');
+        if (navLinks.length && "IntersectionObserver" in window) {
+          var sections = Array.prototype.map
+            .call(navLinks, function (link) {
+              return document.querySelector(link.getAttribute("href"));
+            })
+            .filter(Boolean);
+
+          var spyObserver = new IntersectionObserver(
+            function (entries) {
+              entries.forEach(function (entry) {
+                var link = document.querySelector(
+                  'nav.tabs a[href="#' + entry.target.id + '"]',
+                );
+                if (!link || !entry.isIntersecting) return;
+                navLinks.forEach(function (l) {
+                  l.classList.remove("active");
+                });
+                link.classList.add("active");
+              });
+            },
+            { rootMargin: "-45% 0px -50% 0px", threshold: 0 },
+          );
+          sections.forEach(function (s) {
+            spyObserver.observe(s);
+          });
+        }
+      })();
+    </script>
   </body>
 </html>
