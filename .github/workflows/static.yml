@@ -3,6 +3,9 @@ name: Deploy static content to Pages
 on:
   push:
     branches: ["main"]
+  schedule:
+    # Refresh the YouTube video list daily.
+    - cron: "0 5 * * *"
   workflow_dispatch:
 
 permissions:
@@ -23,6 +26,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Sync latest YouTube videos
+        run: python3 scripts/sync_youtube.py
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
