@@ -24,7 +24,7 @@ Two small inline scripts add progressive enhancement: a light/dark theme toggle 
 
 ## Content
 
-Sections: Summary, YouTube, Core Competencies, Technical Stack, Professional Experience, Selected Systems, Education, Projects, GitHub Activity, Contact. Content is sourced from the résumé (kept locally, gitignored) — update `index.html` directly to reflect résumé changes.
+Sections: Summary, YouTube, Core Competencies, Technical Stack, Professional Experience, Education, Projects, GitHub Activity, Contact. Content is sourced from the résumé (kept locally, gitignored) — update `index.html` directly to reflect résumé changes.
 
 ## YouTube videos
 

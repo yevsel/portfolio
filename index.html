@@ -703,115 +703,6 @@
         color: var(--faint);
       }
 
-      /* ===== Selected Systems ===== */
-      .system {
-        display: grid;
-        grid-template-columns: repeat(12, minmax(0, 1fr));
-        gap: 0 24px;
-        margin: 0;
-        padding: 40px 0 44px;
-        border-top: 1px solid var(--rule);
-      }
-      .system-head {
-        grid-column: 1 / 13;
-        display: flex;
-        align-items: baseline;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 8px 24px;
-        margin-bottom: 22px;
-      }
-      .system-head h3 {
-        font-family: var(--display);
-        font-size: 1.25rem;
-        font-weight: 500;
-        letter-spacing: -0.02em;
-        line-height: 1.2;
-      }
-      .system-idx {
-        margin-right: 14px;
-        font-size: 0.6rem;
-        letter-spacing: 0.14em;
-        color: var(--accent);
-      }
-      .system-head > span {
-        font-size: 0.6rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-      .system-body {
-        grid-column: 1 / 13;
-      }
-      .system-scroll {
-        overflow-x: auto;
-        padding-bottom: 4px;
-        scrollbar-width: thin;
-      }
-      .system svg {
-        display: block;
-        width: 100%;
-        min-width: 820px;
-        height: auto;
-      }
-      .system svg .box {
-        fill: none;
-        stroke: var(--rule-strong);
-        stroke-width: 1;
-        vector-effect: non-scaling-stroke;
-      }
-      .system svg .box.r {
-        stroke: var(--accent);
-      }
-      .system svg .ln {
-        fill: none;
-        stroke: var(--rule-strong);
-        stroke-width: 1;
-        vector-effect: non-scaling-stroke;
-      }
-      .system svg .ln.r {
-        stroke: var(--accent);
-      }
-      .system svg .ln.d {
-        stroke-dasharray: 4 4;
-      }
-      .system svg .bar-fill {
-        fill: var(--accent);
-      }
-      .system svg .head {
-        fill: var(--ink);
-      }
-      .system svg .head-r {
-        fill: var(--accent);
-      }
-      .system svg .n {
-        font-family: var(--text);
-        font-size: 12px;
-        letter-spacing: 1.1px;
-        fill: var(--ink);
-      }
-      .system svg .n.a {
-        fill: var(--accent);
-      }
-      .system svg .s {
-        font-family: var(--text);
-        font-size: 11px;
-        letter-spacing: 1.1px;
-        fill: var(--muted);
-      }
-      .system svg .s.a {
-        fill: var(--accent);
-      }
-      .system figcaption {
-        margin-top: 18px;
-        max-width: 82ch;
-        font-size: 0.64rem;
-        letter-spacing: 0.1em;
-        line-height: 1.7;
-        text-transform: uppercase;
-        color: var(--muted);
-      }
-
       /* ===== Education ===== */
       .edu-block {
         grid-column: 2 / 10;
@@ -1224,18 +1115,6 @@
         }
       }
 
-      @media (max-width: 760px) {
-        .system-body::before {
-          content: "Swipe to explore →";
-          display: block;
-          margin-bottom: 10px;
-          font-size: 0.58rem;
-          letter-spacing: 0.14em;
-          text-transform: uppercase;
-          color: var(--faint);
-        }
-      }
-
       /* ===== Responsive ===== */
       @media (max-width: 1100px) {
         nav.tabs ul {
@@ -1398,7 +1277,6 @@
           <li><a href="#competencies">Competencies</a></li>
           <li><a href="#stack">Stack</a></li>
           <li><a href="#experience">Experience</a></li>
-          <li><a href="#systems">Systems</a></li>
           <li><a href="#education">Education</a></li>
           <li><a href="#projects">Projects</a></li>
           <li><a href="#github">GitHub</a></li>
@@ -1929,239 +1807,10 @@
         </div>
       </section>
 
-      <section id="systems">
-        <div class="wrap">
-          <div class="section-head" data-reveal="head">
-            <span class="num mono">06</span>
-            <h2>Selected Systems</h2>
-          </div>
-
-          <figure class="system" data-reveal="up">
-            <div class="system-head">
-              <h3><span class="system-idx mono">Fig. 01</span>Bihar Krishi</h3>
-              <span>Multi-agent chat platform · 2026</span>
-            </div>
-            <div class="system-body">
-              <div class="system-scroll">
-                <svg
-                  viewBox="0 0 1160 210"
-                  role="img"
-                  aria-label="Bihar Krishi routing: user to FastAPI to LangGraph router to tool call and UI actions. Malformed model output is parsed and retried through the router."
-                >
-                  <defs>
-                    <marker
-                      id="sa1"
-                      viewBox="0 0 8 8"
-                      refX="7"
-                      refY="4"
-                      markerWidth="9"
-                      markerHeight="9"
-                      orient="auto-start-reverse"
-                    >
-                      <path class="head" d="M0 0 L8 4 L0 8 Z" />
-                    </marker>
-                    <marker
-                      id="sa1r"
-                      viewBox="0 0 8 8"
-                      refX="7"
-                      refY="4"
-                      markerWidth="9"
-                      markerHeight="9"
-                      orient="auto-start-reverse"
-                    >
-                      <path class="head-r" d="M0 0 L8 4 L0 8 Z" />
-                    </marker>
-                  </defs>
-
-                  <rect class="box" x="0" y="30" width="100" height="48" />
-                  <text class="n" x="14" y="58">USER</text>
-
-                  <line class="ln" x1="100" y1="54" x2="150" y2="54" marker-end="url(#sa1)" />
-                  <rect class="box" x="150" y="30" width="140" height="48" />
-                  <text class="n" x="164" y="58">FASTAPI</text>
-
-                  <line class="ln" x1="290" y1="54" x2="340" y2="54" marker-end="url(#sa1)" />
-                  <rect class="box" x="340" y="30" width="180" height="48" />
-                  <text class="n" x="354" y="58">LANGGRAPH ROUTER</text>
-
-                  <line class="ln" x1="520" y1="54" x2="570" y2="54" marker-end="url(#sa1)" />
-                  <rect class="box" x="570" y="30" width="160" height="48" />
-                  <text class="n" x="584" y="58">TOOL CALL</text>
-
-                  <line class="ln" x1="730" y1="54" x2="780" y2="54" marker-end="url(#sa1)" />
-                  <rect class="box" x="780" y="30" width="180" height="48" />
-                  <text class="n" x="794" y="58">UI ACTIONS · MCP</text>
-
-                  <line class="ln" x1="960" y1="54" x2="1010" y2="54" marker-end="url(#sa1)" />
-                  <rect class="box" x="1010" y="30" width="150" height="48" />
-                  <text class="n" x="1024" y="58">REPLY</text>
-
-                  <path class="ln r" d="M430 78 L430 164 L570 164" marker-end="url(#sa1r)" />
-                  <rect class="box r" x="570" y="140" width="180" height="48" />
-                  <text class="n a" x="584" y="168">MALFORMED OUTPUT</text>
-
-                  <line class="ln r" x1="750" y1="164" x2="780" y2="164" marker-end="url(#sa1r)" />
-                  <rect class="box r" x="780" y="140" width="170" height="48" />
-                  <text class="n" x="794" y="168">PARSE + RETRY</text>
-
-                  <path class="ln r" d="M950 164 L985 164 L985 16 L430 16 L430 30" marker-end="url(#sa1r)" />
-                  <text class="s a" x="884" y="100">RETRY</text>
-                </svg>
-              </div>
-              <figcaption>
-                Malformed model output is parsed, repaired and retried
-                instead of dropping the turn. Routing errors down 90%.
-              </figcaption>
-            </div>
-          </figure>
-
-          <figure class="system" data-reveal="up">
-            <div class="system-head">
-              <h3><span class="system-idx mono">Fig. 02</span>Agent Framework</h3>
-              <span>Orchestration platform · 2026</span>
-            </div>
-            <div class="system-body">
-              <div class="system-scroll">
-                <svg
-                  viewBox="0 0 1160 210"
-                  role="img"
-                  aria-label="Agent Framework: three workflow steps share one context state, with an MCP tool server feeding step three and a summarizer compacting the shared context."
-                >
-                  <defs>
-                    <marker
-                      id="sa2"
-                      viewBox="0 0 8 8"
-                      refX="7"
-                      refY="4"
-                      markerWidth="9"
-                      markerHeight="9"
-                      orient="auto-start-reverse"
-                    >
-                      <path class="head" d="M0 0 L8 4 L0 8 Z" />
-                    </marker>
-                    <marker
-                      id="sa2r"
-                      viewBox="0 0 8 8"
-                      refX="7"
-                      refY="4"
-                      markerWidth="9"
-                      markerHeight="9"
-                      orient="auto-start-reverse"
-                    >
-                      <path class="head-r" d="M0 0 L8 4 L0 8 Z" />
-                    </marker>
-                  </defs>
-
-                  <rect class="box" x="0" y="30" width="150" height="48" />
-                  <text class="n" x="14" y="58">STEP 01</text>
-                  <line class="ln" x1="150" y1="54" x2="200" y2="54" marker-end="url(#sa2)" />
-                  <rect class="box" x="200" y="30" width="150" height="48" />
-                  <text class="n" x="214" y="58">STEP 02</text>
-                  <line class="ln" x1="350" y1="54" x2="400" y2="54" marker-end="url(#sa2)" />
-                  <rect class="box" x="400" y="30" width="150" height="48" />
-                  <text class="n" x="414" y="58">STEP 03</text>
-
-                  <line class="ln d" x1="75" y1="78" x2="75" y2="140" />
-                  <line class="ln d" x1="275" y1="78" x2="275" y2="140" />
-                  <line class="ln d" x1="475" y1="78" x2="475" y2="140" />
-
-                  <rect class="box" x="0" y="140" width="700" height="44" />
-                  <text class="n" x="14" y="167">SHARED CONTEXT · STATE</text>
-
-                  <line class="ln" x1="550" y1="54" x2="800" y2="54" marker-end="url(#sa2)" />
-                  <text class="s" x="610" y="44">TOOL OUTPUT</text>
-                  <rect class="box" x="800" y="30" width="200" height="48" />
-                  <text class="n" x="814" y="58">MCP TOOL SERVER</text>
-
-                  <line class="ln r d" x1="700" y1="162" x2="800" y2="162" marker-end="url(#sa2r)" />
-                  <rect class="box r" x="800" y="140" width="200" height="44" />
-                  <text class="n" x="814" y="167">SUMMARIZER</text>
-                  <text class="s a" x="1018" y="167">COMPACT</text>
-                </svg>
-              </div>
-              <figcaption>
-                Every step reads and writes the same state; a
-                sliding-window summarizer compacts long histories so context
-                never overflows in production.
-              </figcaption>
-            </div>
-          </figure>
-
-          <figure class="system" data-reveal="up">
-            <div class="system-head">
-              <h3><span class="system-idx mono">Fig. 03</span>TenetXAI</h3>
-              <span>Agent governance · 2026</span>
-            </div>
-            <div class="system-body">
-              <div class="system-scroll">
-                <svg
-                  viewBox="0 0 1160 210"
-                  role="img"
-                  aria-label="TenetXAI: an agent command passes through a Cedar policy check that allows or blocks it, with destructive-operation coverage now at 90 percent across 20 database services."
-                >
-                  <defs>
-                    <marker
-                      id="sa3"
-                      viewBox="0 0 8 8"
-                      refX="7"
-                      refY="4"
-                      markerWidth="9"
-                      markerHeight="9"
-                      orient="auto-start-reverse"
-                    >
-                      <path class="head" d="M0 0 L8 4 L0 8 Z" />
-                    </marker>
-                    <marker
-                      id="sa3r"
-                      viewBox="0 0 8 8"
-                      refX="7"
-                      refY="4"
-                      markerWidth="9"
-                      markerHeight="9"
-                      orient="auto-start-reverse"
-                    >
-                      <path class="head-r" d="M0 0 L8 4 L0 8 Z" />
-                    </marker>
-                  </defs>
-
-                  <rect class="box" x="0" y="30" width="200" height="48" />
-                  <text class="n" x="14" y="58">AGENT COMMAND</text>
-                  <line class="ln" x1="200" y1="54" x2="280" y2="54" marker-end="url(#sa3)" />
-                  <rect class="box" x="280" y="30" width="180" height="48" />
-                  <text class="n" x="294" y="58">CEDAR POLICY</text>
-
-                  <path class="ln" d="M460 54 L500 54 L500 28 L540 28" marker-end="url(#sa3)" />
-                  <rect class="box" x="540" y="8" width="150" height="40" />
-                  <text class="n" x="554" y="32">ALLOW</text>
-
-                  <path class="ln r" d="M500 54 L500 90 L540 90" marker-end="url(#sa3r)" />
-                  <rect class="box r" x="540" y="70" width="150" height="40" />
-                  <text class="n a" x="554" y="94">BLOCK</text>
-
-                  <text class="s" x="0" y="150">DESTRUCTIVE-OP COVERAGE</text>
-                  <rect class="box" x="0" y="160" width="520" height="8" />
-                  <rect class="bar-fill" x="1" y="161" width="466" height="6" />
-                  <text class="s" x="0" y="188">0%</text>
-                  <text class="s a" x="494" y="188">90%</text>
-
-                  <text class="s" x="600" y="166">20 DATABASE SERVICES</text>
-                  <text class="s" x="600" y="182">NOW PROTECTED</text>
-                </svg>
-              </div>
-              <figcaption>
-                Cedar evaluates every destructive operation before
-                execution. Detection now spans SQL, NoSQL and cloud-native
-                databases, with 20 services protected.
-              </figcaption>
-            </div>
-          </figure>
-        </div>
-      </section>
-
       <section id="education">
         <div class="wrap">
           <div class="section-head" data-reveal="head">
-            <span class="num mono">07</span>
+            <span class="num mono">06</span>
             <h2>Education</h2>
           </div>
           <div class="edu-block" data-reveal="up">
@@ -2174,7 +1823,7 @@
       <section id="projects">
         <div class="wrap">
           <div class="section-head" data-reveal="head">
-            <span class="num mono">08</span>
+            <span class="num mono">07</span>
             <h2>Projects</h2>
           </div>
           <div class="job" data-reveal="up">
@@ -2221,7 +1870,7 @@
       <section id="github">
         <div class="wrap">
           <div class="section-head" data-reveal="head">
-            <span class="num mono">09</span>
+            <span class="num mono">08</span>
             <h2>GitHub Activity</h2>
           </div>
           <div class="gh-stats" data-reveal="up">
@@ -2274,7 +1923,7 @@
       <section id="contact">
         <div class="wrap">
           <div class="section-head" data-reveal="head">
-            <span class="num mono">10</span>
+            <span class="num mono">09</span>
             <h2>Contact</h2>
           </div>
           <div class="contact-grid">
