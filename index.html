@@ -26,7 +26,6 @@
     <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
     <meta name="theme-color" content="#111111" />
     <link rel="canonical" href="https://yevsel.com/" />
-    <link rel="preload" as="image" href="avatar.jpg" fetchpriority="high" />
 
     <meta property="og:type" content="profile" />
     <meta property="og:url" content="https://yevsel.com/" />
@@ -335,80 +334,13 @@
 
       /* ===== Hero ===== */
       header.hero {
-        padding: 72px 0 40px;
+        padding: 88px 0 48px;
         border-bottom: 1px solid var(--rule-strong);
       }
-      .hero-top {
-        display: flex;
-        align-items: flex-start;
-        justify-content: space-between;
-        gap: 56px;
-      }
-      .portrait {
-        order: 2;
-        flex: 0 0 300px;
-        width: 300px;
-        margin: 0;
-      }
-      .portrait-frame {
-        position: relative;
-        margin: 0;
-        padding: 16px;
-      }
-      .cm {
-        position: absolute;
-        width: 16px;
-        height: 16px;
-        border: 0 solid var(--ink);
-        pointer-events: none;
-      }
-      .cm.tl {
-        top: 0;
-        left: 0;
-        border-top-width: 1px;
-        border-left-width: 1px;
-      }
-      .cm.tr {
-        top: 0;
-        right: 0;
-        border-top-width: 1px;
-        border-right-width: 1px;
-      }
-      .cm.bl {
-        bottom: 0;
-        left: 0;
-        border-bottom-width: 1px;
-        border-left-width: 1px;
-      }
-      .cm.br {
-        bottom: 0;
-        right: 0;
-        border-bottom-width: 1px;
-        border-right-width: 1px;
-      }
-      .avatar {
-        display: block;
-        width: 100%;
-        height: auto;
-        aspect-ratio: 4 / 5;
-        object-fit: cover;
-        object-position: 50% 30%;
-        border-radius: 0;
-        filter: grayscale(1);
-      }
-      .portrait-caption {
-        margin-top: 12px;
-        font-size: 0.58rem;
-        letter-spacing: 0.14em;
-        text-transform: uppercase;
-        text-align: right;
-        color: var(--muted);
-      }
       .hero-id {
-        order: 1;
         display: flex;
         flex-direction: column;
-        gap: 22px;
+        gap: 26px;
         min-width: 0;
       }
       .hero .eyebrow {
@@ -421,7 +353,7 @@
       .hero h1 {
         font-family: var(--display);
         font-weight: 500;
-        font-size: clamp(3.1rem, 7.4vw, 6.8rem);
+        font-size: clamp(3.4rem, 12.5vw, 11.5rem);
         line-height: 0.9;
         letter-spacing: -0.045em;
       }
@@ -431,10 +363,10 @@
         line-height: 1.4;
         letter-spacing: -0.012em;
         color: var(--muted);
-        max-width: 46ch;
+        max-width: 56ch;
       }
       .hero-bottom {
-        margin-top: 64px;
+        margin-top: 80px;
         padding-top: 20px;
         border-top: 1px solid var(--rule);
         display: flex;
@@ -1133,11 +1065,7 @@
           padding: 76px 0;
         }
         .hero-bottom {
-          margin-top: 48px;
-        }
-        .portrait {
-          flex-basis: 230px;
-          width: 230px;
+          margin-top: 56px;
         }
         .video-grid {
           grid-template-columns: repeat(2, minmax(0, 1fr));
@@ -1151,25 +1079,7 @@
           gap: 20px;
         }
         .hero h1 {
-          font-size: clamp(2.7rem, 12vw, 4.4rem);
-        }
-        .avatar {
-          width: 100%;
-          height: auto;
-        }
-        .portrait {
-          flex-basis: 112px;
-          width: 112px;
-        }
-        .portrait-frame {
-          padding: 10px;
-        }
-        .cm {
-          width: 10px;
-          height: 10px;
-        }
-        .portrait-caption {
-          display: none;
+          font-size: clamp(3rem, 12.5vw, 5rem);
         }
         .section-head h2 {
           grid-column: 2 / 13;
@@ -1243,7 +1153,7 @@
           padding: 60px 0;
         }
         .hero {
-          padding: 48px 0 32px;
+          padding: 56px 0 36px;
         }
         .hero-meta {
           grid-template-columns: repeat(2, auto);
@@ -1295,26 +1205,9 @@
 
     <header class="hero">
       <div class="wrap">
-        <div class="hero-top">
-          <div class="hero-id" data-reveal="up">
-            <div class="eyebrow">Senior Software &amp; AI Engineer</div>
-            <h1>Yevoo Justice<br />Selasi</h1>
-          </div>
-          <div class="portrait" data-reveal="scale">
-            <figure class="portrait-frame">
-              <span class="cm tl"></span><span class="cm tr"></span>
-              <span class="cm bl"></span><span class="cm br"></span>
-              <img
-                class="avatar"
-                src="avatar.jpg"
-                width="400"
-                height="500"
-                alt="Yevoo Justice Selasi"
-                loading="eager"
-              />
-            </figure>
-            <div class="portrait-caption">Accra, Ghana — 2026</div>
-          </div>
+        <div class="hero-id" data-reveal="up">
+          <div class="eyebrow">Senior Software &amp; AI Engineer</div>
+          <h1>Yevoo Justice<br />Selasi</h1>
         </div>
         <div class="role" data-reveal="up" style="--d: 120ms">
           6 years building agentic AI &amp; full-stack systems for e-commerce,
