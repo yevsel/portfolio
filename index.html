@@ -23,7 +23,10 @@
       content="Yevoo Justice Selasi, Senior Software Engineer, AI Engineer, LangGraph, LangChain, MCP, Agentic AI, RAG, Vector Databases, Full-Stack Developer, React, Node.js, Python, FastAPI, Accra Ghana"
     />
     <meta name="author" content="Yevoo Justice Selasi" />
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+    <meta
+      name="robots"
+      content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+    />
     <meta name="theme-color" content="#111111" />
     <link rel="canonical" href="https://yevsel.com/" />
 
@@ -161,7 +164,8 @@
         --accent: #e30613;
         --on-accent: #ffffff;
         --nav-bg: rgba(255, 255, 255, 0.88);
-        --display: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+        --display:
+          "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
         --text: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
         --shadow-transition:
           color 0.25s ease, background-color 0.25s ease, border-color 0.25s ease;
@@ -725,7 +729,9 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: opacity 0.3s ease, transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        transition:
+          opacity 0.3s ease,
+          transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
       }
       .video-card:hover .video-thumb img {
         opacity: 0.82;
@@ -1235,7 +1241,6 @@
       </div>
     </header>
 
-
     <main>
       <section id="summary">
         <div class="wrap">
@@ -1410,8 +1415,8 @@
             <div class="stack-row" data-reveal="up" style="--d: 300ms">
               <div class="label">Cloud &amp; Infra</div>
               <div class="tags">
-                <span>AWS (EC2, ECS)</span><span>AWS Bedrock</span><span>Docker</span><span>Nginx</span
-                ><span>Linux</span>
+                <span>AWS (EC2, ECS)</span><span>AWS Bedrock</span
+                ><span>Docker</span><span>Nginx</span><span>Linux</span>
               </div>
             </div>
             <div class="stack-row" data-reveal="up" style="--d: 360ms">
@@ -1782,11 +1787,7 @@
           </div>
           <div class="gh-scroll" data-reveal="up" style="--d: 80ms">
             <div class="gh-inner">
-              <div
-                class="gh-months"
-                id="gh-months"
-                aria-hidden="true"
-              ></div>
+              <div class="gh-months" id="gh-months" aria-hidden="true"></div>
               <div
                 class="gh-graph"
                 id="gh-graph"
@@ -1797,9 +1798,8 @@
           </div>
           <div class="gh-foot">
             <div class="gh-legend mono" id="gh-legend" aria-hidden="true">
-              <span>Less</span><i data-level="0"></i><i data-level="1"></i><i
-                data-level="2"
-              ></i><i data-level="3"></i><i data-level="4"></i
+              <span>Less</span><i data-level="0"></i><i data-level="1"></i
+              ><i data-level="2"></i><i data-level="3"></i><i data-level="4"></i
               ><span>More</span>
             </div>
             <a
@@ -1839,6 +1839,15 @@
                 target="_blank"
                 rel="noopener"
                 >View on Google Drive</a
+              >
+            </div>
+            <div class="contact-card" data-reveal="scale" style="--d: 150ms">
+              <strong>Certificate</strong>
+              <a
+                href="https://www.udemy.com/certificate/UC-c0a9ee60-3fed-4877-bb27-9d37fd86f45d/"
+                target="_blank"
+                rel="noopener"
+                >Agentic AI Engineering Certificate</a
               >
             </div>
             <div class="contact-card" data-reveal="scale" style="--d: 200ms">
@@ -2015,7 +2024,7 @@
         function renderCard(video, index) {
           var views =
             typeof video.views === "number"
-              ? '<span>' + video.views.toLocaleString() + " views</span>"
+              ? "<span>" + video.views.toLocaleString() + " views</span>"
               : "";
           return (
             '<a class="video-card" href="' +
@@ -2067,7 +2076,8 @@
         var totalEl = document.getElementById("gh-total");
         var currentEl = document.getElementById("gh-current");
         var longestEl = document.getElementById("gh-longest");
-        var API = "https://github-contributions-api.jogruber.de/v4/yevsel?y=last";
+        var API =
+          "https://github-contributions-api.jogruber.de/v4/yevsel?y=last";
         var MONTHS = [
           "Jan",
           "Feb",
@@ -2137,7 +2147,9 @@
           var lastLabelColumn = -99;
 
           for (var i = 0; i < lead; i++) {
-            cells.push('<span class="gh-cell" style="visibility:hidden"></span>');
+            cells.push(
+              '<span class="gh-cell" style="visibility:hidden"></span>',
+            );
           }
 
           var index = lead;
@@ -2179,9 +2191,7 @@
           var fitCells = function () {
             var gap = 3;
             var available = scroller.clientWidth - 8;
-            var cell = Math.floor(
-              (available - gap * (columns - 1)) / columns,
-            );
+            var cell = Math.floor((available - gap * (columns - 1)) / columns);
             cell = Math.max(8, Math.min(18, cell));
             graph.parentElement.style.setProperty("--cell", cell + "px");
           };
@@ -2194,7 +2204,9 @@
           }
 
           var total =
-            data.total && data.total.lastYear != null ? data.total.lastYear : null;
+            data.total && data.total.lastYear != null
+              ? data.total.lastYear
+              : null;
           if (totalEl && total != null) totalEl.textContent = total;
 
           var streak = streaks(days);
@@ -2204,7 +2216,9 @@
           graph.setAttribute(
             "aria-label",
             "GitHub contribution graph for yevsel: " +
-              (total != null ? total + " contributions in the last year, " : "") +
+              (total != null
+                ? total + " contributions in the last year, "
+                : "") +
               streak.current +
               " day current streak.",
           );
